@@ -1,0 +1,7 @@
+#!/usr/bin/env/ bash
+[Desktop Entry]
+Version=0.1.0
+Name=The Storm
+Exec=/bin/TheStorm.linux.x86_64
+Terminal=false
+Type=Application
