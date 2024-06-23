@@ -7,7 +7,6 @@ import pygame.display
 from game.block import blocks
 from game.player import *
 from game.npc import Npc
-from game.npcs import npcs
 
 
 class World:

@@ -95,8 +95,6 @@ class Player:
                     if event.button == 3:
                         if self.ci[ci_index].id == 0:
                             self.ci[ci_index] = self.inventory_item_selected
-                            # self.ci[ci_index].count = 1
-                            # self.inventory[self.selected_item].count -= 1
                             for i in range(0, len(self.inventory) - 1):
                                 if self.inventory[i].id == self.inventory_item_selected.id:
                                     self.inventory[i].count -= 1

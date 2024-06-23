@@ -63,7 +63,7 @@ messages = [
     "Report bugs at: https://nathanmcmillan54/the-storm/issues",
     "Have you drank enough water today?",
     "Some of these texts are inspired by the Minecraft splash texts",
-    "Your hounor... on skibidi... my client did in fact do it."
+    "Your honor... on skibidi... my client did in fact do it."
 ]
 
 
