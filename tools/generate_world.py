@@ -10,7 +10,7 @@ sections = [
 
 
 def main():
-    world_file = open("world.json", "w+")
+    world_file = open("world.json", "x")
 
     world_file.writelines("{\n")
     value = 0
@@ -24,6 +24,7 @@ def main():
             elif 34 > y > 32:
                 value = sections[1][random.randint(0, len(sections[1]) - 1)]
             elif 36 > y > 34:
+                print(f"{value}")
                 value = sections[2][random.randint(0, len(sections[2]) - 1)]
             elif 42 > y > 36:
                 value = sections[3][random.randint(0, len(sections[3]) - 1)]
@@ -55,4 +56,4 @@ def main():
 
 
 if __name__ == '__main__':
-	main()
+    main()

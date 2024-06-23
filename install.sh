@@ -1,12 +1,12 @@
 #!/bin/bash
 
-echo "Installing The Storm for x86_64 Linux"
-mkdir ~/.the_storm/
-python3 tools/generate_world.py && mv world.json ~/.the_storm/world1.json
-python3 tools/generate_world.py && mv world.json ~/.the_storm/world2.json
-python3 tools/generate_world.py && mv world.json ~/.the_storm/world3.json
+echo "Generating files..."
+mkdir /home/$USER/.the_storm/
+python3 tools/generate_world.py && mv world.json /home/$USER/.the_storm/world1.json
+python3 tools/generate_world.py && mv world.json /home/$USER/.the_storm/world2.json
+python3 tools/generate_world.py && mv world.json /home/$USER/.the_storm/world3.json
+echo "Building The Storm"
+pyinstaller main.spec
 
-cp -r linux/The_Storm.desktop ~/Desktop/
-echo "Password required"
-sudo cp -r linux/TheStorm.linux.x86_64 /bin/
-echo "Finished installing"
+cp -r TheStorm.desktop /home/$USER/Desktop/
+sudo mv dist/The_Storm /bin/The_Storm.bin
