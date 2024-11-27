@@ -13,6 +13,8 @@ screen = pygame.display.set_mode((1100, 600))
 clock = pygame.time.Clock()
 pygame.display.set_caption('The Storm')
 
+VERSION = "0.1.0-alpha (2022/12/26)"
+
 messages = [
     "Wood comes from the ground",
     "There aren't any bugs - just unecessary annoying features",
