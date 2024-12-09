@@ -2,7 +2,7 @@ import sys
 
 import pygame.display
 
-from game.main import game_main
+from game.main import main_game_loop
 
 
 def main_menu():
@@ -27,6 +27,7 @@ def main_menu():
     title_font = pygame.font.SysFont('Arial', 24, bold=True, italic=True)
 
     title_text = title_font.render("The Storm", True, (105, 151, 201))
+    selected_world = None
 
     while menu_running:
         for event in pygame.event.get():
@@ -41,14 +42,13 @@ def main_menu():
                 mouse_pos = event.pos
                 if world1_btn.collidepoint(mouse_pos):
                     menu_running = False
-                    game_main(0)
-                    menu_running = True
+                    selected_world = 0
                 elif world2_btn.collidepoint(mouse_pos):
                     menu_running = False
-                    game_main(1)
+                    selected_world = 1
                 elif world3_btn.collidepoint(mouse_pos):
                     menu_running = False
-                    game_main(2)
+                    selected_world = 2
 
         clock.tick(60)
 
@@ -67,3 +67,6 @@ def main_menu():
         screen.blit(world3_text, (505, 480))
 
         pygame.display.flip()
+
+    print("here")
+    main_game_loop(selected_world)
