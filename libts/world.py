@@ -21,7 +21,8 @@ class WorldData:
         self.time = world_json['time']
         self.blocks = world_json['blocks']
         inventory_data = InventoryData()
-        self.inventory_data = inventory_data.from_dict(world_json['inventory_data'])
+        inventory_data.from_dict(world_json['inventory_data'])
+        self.inventory_data = inventory_data
 
     def to_json_dict(self):
         return {

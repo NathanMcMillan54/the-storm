@@ -21,7 +21,7 @@ UNDERGROUND_VINE = 16
 
 # A dictonary of all blocks
 BLOCKS = {
-    NULL_BLOCK: Block("null", NULL_BLOCK, (0, 0, 0), False, False),
+    NULL_BLOCK: Block(" ", NULL_BLOCK, (255, 255, 255), False, False),
     AIR_BLOCK: Block("Air", AIR_BLOCK, (168, 202, 255), False, False),
     GRASS_BLOCK: Block("Grass", GRASS_BLOCK, (12, 117, 0), True, False),
     DIRT_BLOCK: Block("Dirt", DIRT_BLOCK, (135, 74, 0), True, False),

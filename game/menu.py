@@ -68,5 +68,4 @@ def main_menu():
 
         pygame.display.flip()
 
-    print("here")
     main_game_loop(selected_world)
