@@ -31,9 +31,9 @@ class World:
         
         # Display current inventory
         for ci in range(len(self.world_data.inventory_data.current_inventory)):
-            block = BLOCKS[self.player.inventory.current_items[ci].id]
+            item = ITEMS[self.player.inventory.current_items[ci].id]
             item_count_text = pygame.font.SysFont('Arial', 10).render(f"{self.player.inventory.current_items[ci].count}", True, (0, 0, 0))
-            pygame.draw.rect(screen, block.color, pygame.rect.Rect((900 + (ci * 15), 10), (BLOCK_SIZE, BLOCK_SIZE)))
+            pygame.draw.rect(screen, item.color, pygame.rect.Rect((900 + (ci * 15), 10), (BLOCK_SIZE, BLOCK_SIZE)))
             screen.blit(item_count_text, (900 + (ci * 15), 11))
         
         item_selected_text = pygame.font.SysFont('Arial', 12).render(f"{self.player.inventory.current_items[self.player.inventory_item_selected].name}", True, (0, 0, 0))
@@ -50,7 +50,14 @@ class World:
         else:
             if self.left_click == 1:
                 item = self.player.inventory.current_items[self.player.inventory_item_selected]
-                item.use_fun(self, item)
+                use_fun_ret = item.use_fun(self, item)
+                # Place block
+                if use_fun_ret == True and item.block != None:
+                    self.player.inventory.current_items[self.player.inventory_item_selected].count -= 1
+                # Use tool
+                elif use_fun_ret == True and item.block == None:
+                    ###
+                    1 + 1
 
         player_on_block = self.world_data.blocks[self.player.y + 2][self.player.x]
         if BLOCKS[player_on_block].solid == False:

@@ -32,6 +32,26 @@ def main_game_loop(world: int):
                      #   self.player.my += 1
         if key[pygame.K_a]:
             current_world.player.mx -= 1
+        if key[pygame.K_1]:
+            current_world.player.inventory_item_selected = 0
+        if key[pygame.K_2]:
+            current_world.player.inventory_item_selected = 1
+        if key[pygame.K_3]:
+            current_world.player.inventory_item_selected = 2
+        if key[pygame.K_4]:
+            current_world.player.inventory_item_selected = 3
+        if key[pygame.K_5]:
+            current_world.player.inventory_item_selected = 4
+        if key[pygame.K_6]:
+            current_world.player.inventory_item_selected = 5
+        if key[pygame.K_7]:
+            current_world.player.inventory_item_selected = 6
+        if key[pygame.K_8]:
+            current_world.player.inventory_item_selected = 7
+        if key[pygame.K_9]:
+            current_world.player.inventory_item_selected = 8
+        if key[pygame.K_0]:
+            current_world.player.inventory_item_selected = 9
         
         if key[pygame.K_e]:
             current_world.player.inventory_open = True

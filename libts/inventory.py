@@ -4,8 +4,8 @@ from libts.item import Item, ITEMS
 class InventoryData:
     def __init__(self):
         empty_item = InventoryItem()
-        self.current_inventory = [empty_item.__dict__ for _item in range(10)] # Block ids
-        self.stored_inventory = [empty_item.__dict__ for _item in range(20)] # Block ids
+        self.current_inventory = [] # Block ids
+        self.stored_inventory = [] # Block ids
         
     def from_dict(self, inventory_dict):
         self.current_inventory = inventory_dict['current_inventory']
