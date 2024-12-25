@@ -14,7 +14,7 @@ def place_block(world, item):
     if BLOCKS[world.world_data.blocks[y_pos + 1][x_pos]].solid == False:
         return False
 
-    player_x = round(world.player.x / 10) * 10
+    player_x = round(world.player.x / 10) * 10 - 1
     player_y = round(world.player.y / 10) * 10
 
     x_distance = abs(player_x - x_pos)
@@ -30,6 +30,16 @@ def remove_block(world, item):
     x_pos, y_pos = world.mouse_pos
     x_pos = round(x_pos / 10)
     y_pos = round(y_pos / 10)
+
+    player_x = round(world.player.x / 10) * 10 - 1
+    player_y = round(world.player.y / 10) * 10
+
+    x_distance = abs(player_x - x_pos)
+    y_distance = abs(player_y - y_pos)
+
+    if x_distance > 3 or y_distance > 3:
+        print(x_distance)
+        return False
 
     block = BLOCKS[world.world_data.blocks[y_pos][x_pos]]
     if block.solid == False:

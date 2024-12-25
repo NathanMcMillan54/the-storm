@@ -10,7 +10,6 @@ class Inventory:
         for ci in range(len(inventory_data.current_inventory)):
             item = ITEMS[inventory_data.current_inventory[ci]['item_id']]
             item.count = inventory_data.current_inventory[ci]['item_count']
-            print(item.count)
             self.current_items.append(copy.copy(item))
         
         for si in range(len(inventory_data.stored_inventory)):

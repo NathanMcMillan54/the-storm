@@ -24,6 +24,9 @@ def main_game_loop(world: int):
                 sys.exit(0)
 
         key = pygame.key.get_pressed()
+        if key[pygame.K_ESCAPE]:
+            current_world.world_data.write(f"world{world}.json")
+            sys.exit(0)
         if key[pygame.K_w]:
             current_world.player.my -= 3
         if key[pygame.K_d]:
