@@ -57,7 +57,7 @@ def main_game_loop(world: int):
             current_world.player.inventory_item_selected = 9
         
         if key[pygame.K_e]:
-            current_world.player.inventory_open = True
+            current_world.player.inventory_open = not current_world.player.inventory_open
 
         current_world.update()
         current_world.display(screen)

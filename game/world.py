@@ -40,8 +40,6 @@ class World:
             pygame.draw.rect(screen, item.color, pygame.rect.Rect((900 + (ci * 15), 10), (BLOCK_SIZE, BLOCK_SIZE)))
             screen.blit(item_count_text, (900 + (ci * 15), 11))
         
-        item_selected_text = pygame.font.SysFont('Arial', 12).render(f"{self.player.inventory.current_items[self.player.inventory_item_selected].name}", True, (0, 0, 0))
-        screen.blit(item_selected_text, (900, 20))
         time_day_text = pygame.font.SysFont('Arial', 12).render(f"Time: {round(self.world_data.time, 2)} Day: {self.world_data.day}", True, (0, 0, 0))
         screen.blit(time_day_text, (15, 75))
 
@@ -56,6 +54,36 @@ class World:
             pygame.draw.rect(screen, self.npcs[i].color, pygame.rect.Rect((self.npcs[i].x * BLOCK_SIZE, self.npcs[i].y * BLOCK_SIZE), PLAYER_SIZE))
 
         # Display all inventory
+        if self.player.inventory_open:
+            #self.player.inventory_item_selected = -1
+            stored_item_rects = []
+            inventory_background = pygame.Rect(420, 250, 200, 75)
+            pygame.draw.rect(screen, (247, 239, 223), inventory_background)
+            down = 0
+            right = 0
+            # Display inventory
+            for i in range(len(self.player.inventory.stored_items)):
+                right = i * 15
+                if i == 10:
+                    right = 0
+                    down = 15
+                if i > 10:
+                    right = (i - 10) * 15
+                
+                item_rect = pygame.rect.Rect((430 + right, 280 + down, BLOCK_SIZE, BLOCK_SIZE))
+                stored_item_rects.append(item_rect)
+                pygame.draw.rect(screen, self.player.inventory.stored_items[i].color, item_rect)
+            
+            # Check if item is selected
+            for i in range(len(stored_item_rects)):
+                if stored_item_rects[i].collidepoint(self.mouse_pos) and self.left_click == True:
+                    item_selected_text = pygame.font.SysFont('Arial', 12).render(f"{self.player.inventory.stored_items[i].name}", True, (0, 0, 0))
+                    screen.blit(item_selected_text, (900, 20))
+                    self.player.inventory_item_selected = i
+            
+        else:
+            item_selected_text = pygame.font.SysFont('Arial', 12).render(f"{self.player.inventory.current_items[self.player.inventory_item_selected].name}", True, (0, 0, 0))
+            screen.blit(item_selected_text, (900, 20))
     
     def on_block(self, x, y):
         on_block = self.world_data.blocks[y + 2][x]
